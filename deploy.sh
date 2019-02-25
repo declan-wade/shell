@@ -21,39 +21,39 @@ apt install docker-ce docker-ce-cli containerd.io -y
 
 sudo docker run \
   --restart unless-stopped -d \
-  —name steam-cache \
+  --name steam-cache \
   -v /home/user/cache/steam/data:/data/cache \
   -v /home/user/cache/steam/logs:/data/logs \
   -p 192.168.1.50:80:80 \
   steamcache/generic:latest
 
 sudo docker run \
-  —restart unless-stopped -d \
-  —name origin-cache \
+  --restart unless-stopped -d \
+  --name origin-cache \
   -v /home/user/cache/origin/data:/data/cache \
   -v /home/user/cache/origin/logs:/data/logs \
   -p 192.168.1.51:80:80 \
   steamcache/generic:latest
 
 sudo docker run \
-  —-restart unless-stopped -d \
-  —-name blizzard-cache \
+  --restart unless-stopped -d \
+  --name blizzard-cache \
   -v /home/user/cache/blizzard/data:/data/cache \
   -v /home/user/cache/blizzard/logs:/data/logs \
   -p 192.168.1.52:80:80 \
   steamcache/generic:latest
 
 sudo docker run \
-  —-restart unless-stopped -d \
-  —-name windows-cache \
+  --restart unless-stopped -d \
+  --name windows-cache \
   -v /home/user/cache/windows/data:/data/cache \
   -v /home/user/cache/windows/logs:/data/logs \
   -p 192.168.1.53:80:80 \
   steamcache/generic:latest
 
 sudo docker run \
-  —-restart unless-stopped -d \
-  —-name steamcache-dns \
+  --restart unless-stopped -d \
+  --name steamcache-dns \
   -p 192.168.1.50:53:53/udp \
   -e UPSTREAM_DNS=192.168.1.121 \
   -e STEAMCACHE_IP=192.168.1.50 \
