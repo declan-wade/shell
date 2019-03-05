@@ -55,7 +55,7 @@ sudo docker run \
   --restart unless-stopped -d \
   --name steamcache-dns \
   -p 192.168.1.50:53:53/udp \
-  -e UPSTREAM_DNS=192.168.1.121 \
+  -e UPSTREAM_DNS=192.168.1.130 \
   -e STEAMCACHE_IP=192.168.1.50 \
   -e ORIGINCACHE_IP=192.168.1.51 \
   -e BLIZZARDCACHE_IP=192.168.1.52 \
