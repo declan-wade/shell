@@ -12,14 +12,14 @@ apt-get install apt-transport-https ca-certificates curl software-properties-com
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-sudo add-apt-repository \
+add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
 
 apt install docker-ce docker-ce-cli containerd.io -y
 
-sudo docker run \
+docker run \
   --restart unless-stopped -d \
   --name steam-cache \
   -v /home/user/cache/steam/data:/data/cache \
@@ -27,7 +27,7 @@ sudo docker run \
   -p 192.168.1.50:80:80 \
   steamcache/generic:latest
 
-sudo docker run \
+docker run \
   --restart unless-stopped -d \
   --name origin-cache \
   -v /home/user/cache/origin/data:/data/cache \
@@ -35,7 +35,7 @@ sudo docker run \
   -p 192.168.1.51:80:80 \
   steamcache/generic:latest
 
-sudo docker run \
+docker run \
   --restart unless-stopped -d \
   --name blizzard-cache \
   -v /home/user/cache/blizzard/data:/data/cache \
@@ -43,7 +43,7 @@ sudo docker run \
   -p 192.168.1.52:80:80 \
   steamcache/generic:latest
 
-sudo docker run \
+docker run \
   --restart unless-stopped -d \
   --name windows-cache \
   -v /home/user/cache/windows/data:/data/cache \
@@ -51,7 +51,7 @@ sudo docker run \
   -p 192.168.1.53:80:80 \
   steamcache/generic:latest
 
-sudo docker run \
+docker run \
   --restart unless-stopped -d \
   --name steamcache-dns \
   -p 192.168.1.50:53:53/udp \
@@ -63,7 +63,6 @@ sudo docker run \
   steamcache/steamcache-dns:latest
 
 docker volume create portainer_data
-
 docker run -d -p 9000:9000 -v /home/user/portainer/docker.sock:/var/run/docker.sock -v /home/user/portainer:/data portainer/portainer
 
 docker run \
