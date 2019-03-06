@@ -63,7 +63,14 @@ docker run \
   steamcache/steamcache-dns:latest
 
 docker volume create portainer_data
-docker run -d -p 9000:9000 -v /home/user/portainer/docker.sock:/var/run/docker.sock -v /home/user/portainer:/data portainer/portainer
+
+docker run -d \
+    --name portainer \
+    --restart always  -d \
+    -p 9000:9000 \
+    -v /home/user/portainer/docker.sock:/var/run/docker.sock \
+    -v /home/user/portainer:/data \
+    portainer/portainer 
 
 docker run \
   --name guac \
@@ -74,3 +81,9 @@ docker run \
   oznu/guacamole
 
 docker run --name nginx --restart always -v /home/user/nginx:/etc/nginx -d -p 192.168.1.54:80:80 nginx\
+
+sudo docker run -d \
+  --name watchtower \
+   --restart always \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  v2tec/watchtower
