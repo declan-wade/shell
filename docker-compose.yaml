@@ -9,26 +9,22 @@ services:
             - './data/nginx:/etc/nginx/conf.d'
             - './data/certbot/conf:/etc/letsencrypt'
             - './data/certbot/www:/var/www/certbot'
-        restart_policy:
-            condition: on-failure
+        restart: always
     certbot:
         image: certbot/certbot
         volumes:
             - './data/certbot/conf:/etc/letsencrypt'
             - './data/certbot/www:/var/www/certbot'
-        restart_policy:
-            condition: on-failure
+        restart: always
     portainer:
         image: portainer/portainer
         ports:
             - '9000:9000'
         volumes:
             - './var/run/docker.sock:/var/run/docker.sock'
-        restart_policy:
-            condition: on-failure
+        restart: always
     watchtower:
         image: v2tec/watchtower
         volumes:
             - '/var/run/docker.sock:/var/run/docker.sock'
-        restart_policy:
-            condition: on-failure
+        restart: always
