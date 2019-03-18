@@ -80,10 +80,17 @@ docker run \
   -e "EXTENSIONS=auth-duo" \
   oznu/guacamole
 
-docker run --name nginx --restart always -v /home/user/nginx:/etc/nginx -d -p 192.168.1.54:80:80 nginx\
+docker run \
+--name nginx \
+--restart always \
+-v /home/user/nginx:/etc/nginx \
+-d -p 192.168.1.54:80:80 \
+nginx
 
 sudo docker run -d \
   --name watchtower \
    --restart always \
   -v /var/run/docker.sock:/var/run/docker.sock \
   v2tec/watchtower
+  
+  
