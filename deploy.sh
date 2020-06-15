@@ -8,6 +8,8 @@ apt -y autoremove
 
 apt clean
 
+apt update
+
 apt-get install apt-transport-https ca-certificates curl software-properties-common -y
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
