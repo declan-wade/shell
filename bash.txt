@@ -1,0 +1,3 @@
+"C:\Program Files (x86)\NAPS2\NAPS2.Console.exe" -o "C:\Users\Declan\OneDrive\Documents\Scans\scan_$(DD)-$(MM)-$(YY).pdf" -p "Brother Feeder"
+
+"C:\Program Files (x86)\NAPS2\NAPS2.Console.exe" -o "C:\Users\Declan\OneDrive\Documents\Scans\scan_$(DD)-$(MM)-$(YY).pdf" -p "Brother Flatbed"
